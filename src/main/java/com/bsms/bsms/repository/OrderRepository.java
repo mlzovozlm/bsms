@@ -1,0 +1,1 @@
+//due to hibernate jpa mapping, no need for OrderDetailRepository
