@@ -36,12 +36,6 @@ public class AccountController {
 		return "home_page";
 	}
 
-	@PostMapping("/login")
-	String login(Model model, Account account) {
-
-		return "home_page";
-	}
-
 	@GetMapping("/register")
 	String registerPage(Model model) {
 		model.addAttribute("registerForm", new RegisterForm());

@@ -2,7 +2,10 @@ package com.bsms.bsms.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,11 +18,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "customer")
+@Table(name = "Customer")
 public class Customer {
-	@MapsId
-	private Account account;
-
+	@Id
+	@Column(name = "accountId")
+	private int id;
 	@Column(name = "firstName")
 	private String firstName;
 	@Column(name = "lastName")
@@ -29,4 +32,8 @@ public class Customer {
 	@Column(name = "phone")
 	private String phone;
 
+	@MapsId
+	@OneToOne(mappedBy = "customer")
+	@JoinColumn(name = "accountId")
+	Account account;
 }

@@ -51,6 +51,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/manage/employee").hasAuthority("ROLE_MANAGER")
 				.anyRequest().permitAll()
 				.and().formLogin()
+				.loginProcessingUrl("/loginProcess")
+				.failureUrl("/login")
+				.defaultSuccessUrl("/home")
 				.loginPage("/login")
 				.and()
 				.exceptionHandling().accessDeniedPage("/access_denied");
