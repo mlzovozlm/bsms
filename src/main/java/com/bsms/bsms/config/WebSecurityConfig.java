@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.bsms.bsms.service.AccountService;
 
@@ -57,6 +58,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login")
 				.and()
 				.exceptionHandling().accessDeniedPage("/access_denied")
+				.and()
+				.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+				.deleteCookies("remember-me", "JSESSIONID")
+				.invalidateHttpSession(true)
+				.clearAuthentication(true)
+				.logoutSuccessUrl("/home")
 				.and()
 				.rememberMe().tokenRepository(this.persistentTokenRepository()) //
 				.tokenValiditySeconds(1 * 24 * 60 * 60); // 24h
