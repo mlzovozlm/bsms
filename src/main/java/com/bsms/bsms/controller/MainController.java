@@ -20,7 +20,7 @@ import com.bsms.bsms.service.CustomerService;
 
 @Controller
 @RequestMapping("/")
-public class AccountController {
+public class MainController {
 	@Autowired
 	private AccountService accountService;
 	@Autowired
