@@ -56,9 +56,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.defaultSuccessUrl("/home")
 				.loginPage("/login")
 				.and()
-				.exceptionHandling().accessDeniedPage("/access_denied");
-
-		http.authorizeRequests().and() //
+				.exceptionHandling().accessDeniedPage("/access_denied")
+				.and()
 				.rememberMe().tokenRepository(this.persistentTokenRepository()) //
 				.tokenValiditySeconds(1 * 24 * 60 * 60); // 24h
 	}

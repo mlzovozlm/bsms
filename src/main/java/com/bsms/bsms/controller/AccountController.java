@@ -31,7 +31,7 @@ public class AccountController {
 		return "login_page";
 	}
 
-	@GetMapping("")
+	@GetMapping(value = { "", "/home" })
 	String homePage(Model model) {
 		return "home_page";
 	}
@@ -72,7 +72,7 @@ public class AccountController {
 	}
 
 	@GetMapping("/access_denied")
-	public String accessDenied(Model model, Principal principal) {
+	public String accessDeniedPage(Model model, Principal principal) {
 
 		return "access_denied_page";
 	}

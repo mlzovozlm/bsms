@@ -39,8 +39,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.account.getEmail();
 	}
 
 	@Override
