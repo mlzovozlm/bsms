@@ -32,4 +32,8 @@ public class OrderDetail {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "bookId", referencedColumnName = "bookId")
 	private Book book;
+
+	@Column(name = "price")
+	private double price;
+
 }
