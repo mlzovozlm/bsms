@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Customer {
 	@Id
 	@Column(name = "accountId")
-	private int id;
+	private int accountId;
 	@Column(name = "firstName")
 	private String firstName;
 	@Column(name = "lastName")
@@ -33,7 +33,8 @@ public class Customer {
 	private String phone;
 
 	@MapsId
-	@OneToOne(mappedBy = "customer")
+	@OneToOne
 	@JoinColumn(name = "accountId")
 	Account account;
+
 }

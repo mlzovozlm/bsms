@@ -1,9 +1,13 @@
 package com.bsms.bsms.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -33,4 +37,8 @@ public class Book {
 
 	@Column(name = "description")
 	private String description;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+	private List<OrderDetail> orderDetails;
+
 }

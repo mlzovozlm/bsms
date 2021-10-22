@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+    <title>Login Page</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+	<nav>
+    	<a href="@{/}">Home</a>
+	</nav>
+
+	<main role="main" class="container">
+		<form th:action="@{/register}" method="post" id="registerForm">
+			<div><label> Email: <input type="text" name="email" th:value="${registerForm.email}"/> </label></div>
+            <div><label> Password: <input type="password" name="password" value=""/> </label></div>
+            <div><label> Re-enter Password: <input type="password" name="passwordReEnter" value=""/> </label></div>
+            <div><label> Email: <input type="text" name="firstName" th:value="${registerForm.firstName}"/> </label></div>
+            <div><label> Email: <input type="text" name="lastName" th:value="${registerForm.lastName}"/> </label></div>
+            <div><label> Email: <input type="text" name="address" th:value="${registerForm.address}"/> </label></div>
+			<div><label> Email: <input type="text" name="phone" th:value="${registerForm.phone}" pattern="[0-9]{9}"/> </label></div>
+            <div><input type="submit" value="Register" onclick="submit()"/></div>
+		</form>
+	</main>
+<!-- /.container -->
+
+</body>
+</html>
