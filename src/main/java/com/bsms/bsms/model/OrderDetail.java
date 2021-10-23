@@ -35,5 +35,9 @@ public class OrderDetail {
 
 	@Column(name = "price")
 	private double price;
+	@Column(name = "quantity")
+	private int quantity;
+	@Column(name = "deleted")
+	private boolean deleted;
 
 }

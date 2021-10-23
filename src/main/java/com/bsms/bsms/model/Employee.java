@@ -1,11 +1,15 @@
 package com.bsms.bsms.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.criteria.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,20 +24,19 @@ import lombok.Setter;
 @Table(name = "Employee")
 public class Employee {
 	@Id
-	@Column(name = "accountId")
 	private int accountId;
-	@Column(name = "firstName")
-	private String firstName;
-	@Column(name = "lastName")
-	private String lastName;
-	@Column(name = "address")
-	private String address;
-	@Column(name = "phone")
-	private String phone;
+
+	@Column(name = "salary")
+	private double salary;
+	@Column(name = "deleted")
+	private boolean deleted;
 
 	@MapsId
 	@OneToOne
 	@JoinColumn(name = "accountId")
 	Account account;
+
+	@OneToMany(mappedBy = "employee")
+	private List<Order> orders;
 
 }

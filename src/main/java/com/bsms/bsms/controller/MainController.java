@@ -58,14 +58,14 @@ public class MainController {
 		account = new Account();
 		account.setEmail(registerForm.getEmail());
 		account.setPassword(registerForm.getPassword());
+		account.setFirstName(registerForm.getFirstName());
+		account.setLastName(registerForm.getLastName());
+		account.setAddress(registerForm.getAddress());
+		account.setPhone(registerForm.getPhone());
 		account.setRoles(roles);
 		accountService.addAccount(account);
 
 		Customer customer = new Customer();
-		customer.setFirstName(registerForm.getFirstName());
-		customer.setLastName(registerForm.getLastName());
-		customer.setAddress(registerForm.getAddress());
-		customer.setPhone(registerForm.getPhone());
 		customerService.addCustomer(customer);
 
 		return "redirect:/registerSuccess_page";

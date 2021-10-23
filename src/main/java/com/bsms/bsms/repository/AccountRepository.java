@@ -18,7 +18,7 @@ public class AccountRepository {
 
 	public Account findAccountByEmail(String email) {
 		try {
-			String sql = "SELECT a from " + Account.class.getName() + " a "
+			String sql = "SELECT a from Account a "
 					+ " WHERE a.email = :email";
 			Query query = em.createQuery(sql, Account.class);
 			query.setParameter("email", email);
@@ -30,10 +30,6 @@ public class AccountRepository {
 	};
 
 	public void addAccount(Account account) {
-		String sql = "INSERT INTO Account(id, email, password) VALUE (?,?,?)";
-		em.createNativeQuery(sql)
-				.setParameter(1, account.getId())
-				.setParameter(2, account.getEmail())
-				.setParameter(3, account.getPassword());
+		this.em.persist(account);
 	}
 }

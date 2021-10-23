@@ -38,6 +38,12 @@ public class Book {
 	@Column(name = "description")
 	private String description;
 
+	@Column(name = "quantity")
+	private int quantity;
+
+	@Column(name = "deleted")
+	private boolean deleted;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
 	private List<OrderDetail> orderDetails;
 

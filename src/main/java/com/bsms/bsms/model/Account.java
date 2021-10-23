@@ -11,10 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.criteria.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,13 +38,19 @@ public class Account {
 
 	@Column(name = "password", length = 128, nullable = false)
 	private String password;
-
+	@Column(name = "firstName")
+	private String firstName;
+	@Column(name = "lastName")
+	private String lastName;
+	@Column(name = "address")
+	private String address;
+	@Column(name = "phone")
+	private String phone;
+	@Column(name = "deleted")
+	private boolean deleted;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "AccountRole", joinColumns = @JoinColumn(name = "accountId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
 	private List<Role> roles;
-
-	@OneToMany(mappedBy = "account")
-	private List<Order> orders;
 
 	@OneToOne(mappedBy = "account")
 	private Customer customer;

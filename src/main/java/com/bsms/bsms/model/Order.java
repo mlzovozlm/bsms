@@ -28,18 +28,24 @@ public class Order {
 	@Id
 	@Column(name = "orderId")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int orderId;
 
 	@ManyToOne
-	@JoinColumn(name = "accountId", nullable = false)
-	private Account account;
+	@JoinColumn(name = "customerId", nullable = false)
+	private Customer customer;
 
 	@Column(name = "oderDate", nullable = false)
 	private Date orderDate;
 
 	@Column(name = "status", nullable = false)
 	private String status;
+	@ManyToOne
+	@JoinColumn(name = "employeeId", nullable = false)
+	private Employee employee;
+	@Column(name = "deleted")
+	private boolean deleted;
 
 	@OneToMany(mappedBy = "order")
 	private List<OrderDetail> orderDetails;
+
 }

@@ -28,7 +28,8 @@ public class Role {
 	private int id;
 	@Column(name = "name")
 	private String name;
-
+	@Column(name = "deleted")
+	private boolean deleted;
 	@ManyToMany(mappedBy = "roles")
 	private List<Account> accounts;
 }
