@@ -1,19 +1,12 @@
 package com.bsms.bsms.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bsms.bsms.model.Account;
-import com.bsms.bsms.model.Role;
-import com.bsms.bsms.model.UserDetailsImpl;
 import com.bsms.bsms.repository.AccountRepository;
 
 @Service
@@ -33,18 +26,8 @@ public class AccountServiceImpl implements AccountService {
 		}
 
 		System.out.println("Found User: " + account);
-		List<Role> roles = account.getRoles();
 
-		List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
-		if (roles != null) {
-			for (Role role : roles) {
-				GrantedAuthority authority = new SimpleGrantedAuthority(role.getName());
-				grantList.add(authority);
-			}
-		}
-
-		UserDetailsImpl userDetails = new UserDetailsImpl(account);
-		return userDetails;
+		return account;
 	}
 
 	@Override
