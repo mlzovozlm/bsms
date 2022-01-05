@@ -39,9 +39,11 @@ public class Order {
 
 	@Column(name = "status", nullable = false)
 	private String status;
+
 	@ManyToOne
 	@JoinColumn(name = "employeeId", nullable = false)
 	private Employee employee;
+
 	@Column(name = "deleted")
 	private boolean deleted;
 

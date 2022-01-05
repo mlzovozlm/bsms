@@ -3,13 +3,13 @@ package com.bsms.bsms.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.criteria.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Employee")
+@Entity
 public class Employee {
 	@Id
 	private int accountId;
