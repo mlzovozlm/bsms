@@ -32,7 +32,8 @@ public class MainController {
 	}
 
 	@GetMapping(value = { "", "/home" })
-	String homePage(Model model) {
+	String homePage(Model model, Principal principal) {
+		model.addAttribute("principal", principal);
 		return "home_page";
 	}
 
