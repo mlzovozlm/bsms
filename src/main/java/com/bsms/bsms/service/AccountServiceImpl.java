@@ -14,7 +14,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Autowired
 	private AccountRepository accountRepository;
-	@Autowired
+
 	private BCryptPasswordEncoder encoder;
 
 	@Override
